@@ -1,6 +1,6 @@
 <h1>Cart:</h1>
 
-<table>
+<table class="table">
   <thead>
     <th>Code</th>
     <th>Name</th>
@@ -22,9 +22,9 @@
   <tbody>
     <% cart.line_items.each do |line_item| %>
       <tr>
-        <td> <%= line_item.item.code %></td>
-        <td> <%= line_item.item.name %></td>
-        <td> <%= line_item.item.price %></td>
+        <td> <%= line_item.item_code %></td>
+        <td> <%= line_item.item_name %></td>
+        <td> <%= line_item.item_price %></td>
         <td> <%= line_item.quantity %></td>
         <td> <%= item_has_promotion?(line_item.item) %></td>
         <td> <%= line_item.sub_total %></td>
@@ -34,5 +34,11 @@
 
 </table>
 
-<%= link_to "Go to Store", items_path %>
-<%= link_to "Empty cart", cart, method: :delete, confirm: 'Are you sure?' %>
+<%= link_to items_path, class: 'btn btn-info' do %>
+  <i class="icon-share-alt glyphw"></i>
+  Continue shopping
+<% end -%>
+
+<%= link_to cart, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+  <i class="icon-trash glyphw"></i> Empty Cart
+<% end -%>

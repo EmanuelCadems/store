@@ -1,0 +1,11 @@
+<ul class="nav nav-list">
+  <li class="nav-header">Products</li>
+  <li class="active"><%= link_to "All items", items_path %></li>
+  <% if cart.line_items.any? %>
+    <li class="nav-header">My Cart</li>
+    <li><%= link_to "Show Cart", cart_path(cart) %></li>
+    <li><%= link_to "Empty cart", cart, method: :delete, confirm: 'Are you sure?' %></li>
+  <% end -%>
+  <li class="nav-header">Promotions</li>
+  <li><%= link_to "All", promotions_path %></li>
+</ul>

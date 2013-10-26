@@ -1,0 +1,26 @@
+<h1>Promotions:</h1>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Count</th>
+    <th>Discount</th>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="3"> <strong>* Valid only for October and September of 2013</strong></td>
+    </tr>
+    </tfoot>
+  <tbody>
+    <% promotions.each do |promotion| %>
+      <tr>
+        <td> <%= promotion.name %></td>
+        <td> <%= promotion.quantity %></td>
+        <td> <%= promotion.discount %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+
+</table>
+
+<%= link_to "Go to Store", items_path %>

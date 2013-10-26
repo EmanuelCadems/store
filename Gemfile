@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder',              '~> 1.2'
 gem 'decent_exposure',       github: 'voxdolo/decent_exposure'
+gem 'bootstrap-sass'
 
 group :doc do
   gem 'sdoc', require: false

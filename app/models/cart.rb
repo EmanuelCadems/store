@@ -19,6 +19,6 @@ class Cart < ActiveRecord::Base
       total += line_item.sub_total
     end
 
-    total
+    total.round(2)
   end
 end

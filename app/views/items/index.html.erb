@@ -1,5 +1,5 @@
 <h1> Products </h1>
-<table>
+<table class="table">
   <thead>
     <th>Code</th>
     <th>Name</th>
@@ -15,7 +15,12 @@
         <td> <%= item.name %></td>
         <td> <%= item.price %></td>
         <td> <%= item_has_promotion?(item) %></td>
-        <td> <%= button_to "Add to cart", line_items_path(item) %></td>
+        <td>
+          <%= link_to line_items_path(item), method: :post, class: "btn btn-success" do %>
+            <i class="icon-shopping-cart glyphw" id="cart"></i>
+            Add to cart
+          <% end %>
+        </td>
       </tr>
     <% end -%>
   </tbody>

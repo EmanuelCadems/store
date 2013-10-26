@@ -4,6 +4,7 @@ Store::Application.routes.draw do
   post 'line_items/:item_id' => 'line_items#create', as: :line_items
   get 'carts/:id' => 'carts#show', as: :cart
   delete '/carts/:id' => 'carts#destroy'
+  get '/promotions' => 'promotions#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

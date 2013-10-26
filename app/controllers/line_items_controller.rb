@@ -1,6 +1,4 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:create]
 
   def create
     item       = Item.find(params[:item_id])
