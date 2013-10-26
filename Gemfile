@@ -26,3 +26,8 @@ group :test do
   gem 'simplecov',           require: false
   gem 'launchy'
 end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
