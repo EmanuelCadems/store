@@ -11,6 +11,7 @@ class LineItemsController < ApplicationController
     end
   end
 
+protected
   def line_item_params
     params.require(:line_item).permit(:item_id)
   end

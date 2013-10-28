@@ -1,11 +1,31 @@
 <ul class="nav nav-list">
   <li class="nav-header">Products</li>
-  <li class="active"><%= link_to "All items", items_path %></li>
+  <li class="<%= active?('items', 'index') %>">
+    <%= link_to items_path do %>
+      <i class="icon-th-list"></i> All items
+      <span class="badge badge-info"><%= Item.count %></span>
+    <% end -%>
+  </li>
   <% if cart.line_items.any? %>
     <li class="nav-header">My Cart</li>
-    <li><%= link_to "Show Cart", cart_path(cart) %></li>
-    <li><%= link_to "Empty cart", cart, method: :delete, confirm: 'Are you sure?' %></li>
+    <li class="<%= 'active' if current_page?(cart_path(cart)) %>" >
+      <%= link_to cart_path(cart) do %>
+        <i class="icon-shopping-cart"></i> Show Cart
+        <span class="badge badge-info"><%= cart.line_items.sum(:quantity) %></span>
+      <% end -%>
+    </li>
+    <li class="">
+      <%= link_to cart, method: :delete, confirm: 'Are you sure?' do %>
+        <i class="icon-trash"></i>
+        Empty cart
+      <% end -%>
+    </li>
   <% end -%>
   <li class="nav-header">Promotions</li>
-  <li><%= link_to "All", promotions_path %></li>
+  <li class="<%= active?('promotions', 'index') %>">
+    <%= link_to promotions_path do %>
+      <i class="icon-bullhorn"></i> All
+      <span class="badge badge-info"><%= Promotion.count %></span>
+    <% end -%>
+  </li>
 </ul>

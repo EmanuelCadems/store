@@ -17,7 +17,7 @@ class Checkout
     st1 = @items_without_promotion.inject(0) {|sum, e| sum += e.price }
 
 
-    calculate_discount.round(2) + st1.round(2)
+    (calculate_discount + st1).round(2)
   end
 
 private

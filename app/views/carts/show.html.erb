@@ -6,7 +6,7 @@
     <th>Name</th>
     <th>Price</th>
     <th>Count</th>
-    <th>Discount</th>
+    <th>Promotion</th>
     <th>Subtotal</th>
   </thead>
   <tfoot>
@@ -14,10 +14,12 @@
       <td colspan="5"> <strong>Total</strong></td>
       <td> <strong><%= cart.total %></strong></td>
     </tr>
-    <tr>
-      <td colspan="5"><strong>Total with Discount</strong></td>
-      <td> <strong><%= @total %></strong></td>
-    </tr>
+    <% if cart.total != @total %>
+      <tr class="discount">
+        <td colspan="5"><strong>Total with Discount</strong></td>
+        <td> <strong><%= @total %></strong></td>
+      </tr>
+    <% end -%>
   </tfoot>
   <tbody>
     <% cart.line_items.each do |line_item| %>
